@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b2130"/>
+      <stop offset="1" stop-color="#0a0c10"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3ddc84"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.5">
+      <stop offset="0" stop-color="#3ddc84" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#3ddc84" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bg)"/>
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#glow)"/>
+  <rect x="101.5" y="101.5" width="821" height="821" rx="183.5" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="3"/>
+  <!-- head with ears -->
+  <path d="M332 470 L322 270 L452 370 Q512 356 572 370 L702 270 L692 470 Q712 520 706 572 Q690 708 512 724 Q334 708 318 572 Q312 520 332 470 Z"
+        fill="#0e1218" stroke="url(#mark)" stroke-width="40" stroke-linejoin="round"/>
+  <!-- eyes: terminal cursors -->
+  <rect x="418" y="482" width="40" height="84" rx="20" fill="#3ddc84"/>
+  <rect x="566" y="482" width="40" height="84" rx="20" fill="#22d3ee"/>
+  <!-- nose -->
+  <path d="M496 612 L528 612 L512 630 Z" fill="#e6e9ef" stroke="#e6e9ef" stroke-width="12" stroke-linejoin="round"/>
+  <!-- whiskers = log lines, coloured by level -->
+  <g stroke-width="22" stroke-linecap="round">
+    <line x1="168" y1="556" x2="270" y2="570" stroke="#5aa9e6"/>
+    <line x1="156" y1="622" x2="266" y2="622" stroke="#3ddc84"/>
+    <line x1="176" y1="690" x2="276" y2="672" stroke="#f5c451"/>
+    <line x1="856" y1="556" x2="754" y2="570" stroke="#5aa9e6"/>
+    <line x1="868" y1="622" x2="758" y2="622" stroke="#3ddc84"/>
+    <line x1="848" y1="690" x2="748" y2="672" stroke="#f0626a"/>
+  </g>
+</svg>
