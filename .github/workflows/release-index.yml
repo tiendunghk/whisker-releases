@@ -1,46 +1,49 @@
 name: Release index
 
-# Publishes release.json (the latest release's version and installers) to
-# GitHub Pages, so the landing page can read it without the GitHub API's
+# Writes release.json (the latest release's version and installers) to the
+# `release-index` branch. The landing page reads it from
+# raw.githubusercontent.com: HTTPS, CORS-enabled and without the GitHub API's
 # 60-requests-per-hour limit for anonymous visitors.
+#
+# The branch is replaced by a single commit each time, so it never grows.
 on:
   release:
     types: [published, edited, unpublished, deleted]
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: pages
+  group: release-index
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  index:
     runs-on: ubuntu-24.04
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Build release.json
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          mkdir site
           gh api "repos/${GITHUB_REPOSITORY}/releases/latest" --jq '{
             version: (.tag_name | ltrimstr("v")),
             tag: .tag_name,
             published_at,
             url: .html_url,
             assets: [.assets[] | {name, url: .browser_download_url, size}]
-          }' > site/release.json
-          cat site/release.json
+          }' > release.json
+          cat release.json
 
-      - uses: actions/configure-pages@v6
-      - uses: actions/upload-pages-artifact@v5
-        with:
-          path: site
-      - id: deployment
-        uses: actions/deploy-pages@v5
+      - name: Replace the release-index branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version=$(jq -r .version release.json)
+          git init -q index && mv release.json index/ && cd index
+          git checkout -q --orphan release-index
+          git add release.json
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -q -m "Release index for ${version}"
+          git push -q -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" release-index
