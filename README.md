@@ -8,12 +8,14 @@
 
 This repository hosts the **installers** for Whisker. Grab the latest version from **[Releases](https://github.com/tiendunghk/whisker-releases/releases/latest)**.
 
-| Platform | Download |
+| Platform | File |
 | --- | --- |
-| macOS (Apple Silicon) | [Whisker_aarch64.dmg](https://github.com/tiendunghk/whisker-releases/releases/latest/download/Whisker_aarch64.dmg) |
-| macOS (Intel) | [Whisker_x64.dmg](https://github.com/tiendunghk/whisker-releases/releases/latest/download/Whisker_x64.dmg) |
-| Windows | [Whisker_x64-setup.exe](https://github.com/tiendunghk/whisker-releases/releases/latest/download/Whisker_x64-setup.exe) |
-| Linux | [Whisker_amd64.AppImage](https://github.com/tiendunghk/whisker-releases/releases/latest/download/Whisker_amd64.AppImage) · `.deb` and `.rpm` on the release page |
+| macOS (Apple Silicon) | `Whisker_<version>_aarch64.dmg` |
+| macOS (Intel) | `Whisker_<version>_x64.dmg` |
+| Windows | `Whisker_<version>_x64-setup.exe` (or `.msi`) |
+| Linux | `Whisker_<version>_amd64.AppImage`, `.deb` or `.rpm` |
+
+Whisker updates itself: installed apps offer new versions from this page automatically.
 
 ## Requirements
 
