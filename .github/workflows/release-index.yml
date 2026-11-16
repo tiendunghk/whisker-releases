@@ -5,10 +5,15 @@ name: Release index
 # raw.githubusercontent.com: HTTPS, CORS-enabled and without the GitHub API's
 # 60-requests-per-hour limit for anonymous visitors.
 #
+# It also carries download counts (installers only: updater bundles are
+# updates, not new users), refreshed hourly since GitHub has no event for them.
+#
 # The branch is replaced by a single commit each time, so it never grows.
 on:
   release:
     types: [published, edited, unpublished, deleted]
+  schedule:
+    - cron: "17 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -26,13 +31,20 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh api "repos/${GITHUB_REPOSITORY}/releases/latest" --jq '{
-            version: (.tag_name | ltrimstr("v")),
-            tag: .tag_name,
-            published_at,
-            url: .html_url,
-            assets: [.assets[] | {name, url: .browser_download_url, size}]
-          }' > release.json
+          installer='\.(dmg|exe|msi|AppImage|deb|rpm)$'
+          gh api --paginate "repos/${GITHUB_REPOSITORY}/releases" --jq '.[]' | jq -s '[.[] | select(.draft | not)]' > all.json
+          gh api "repos/${GITHUB_REPOSITORY}/releases/latest" \
+            | jq --slurpfile all all.json --arg re "$installer" '{
+                version: (.tag_name | ltrimstr("v")),
+                tag: .tag_name,
+                published_at,
+                url: .html_url,
+                assets: [.assets[] | {name, url: .browser_download_url, size, downloads: .download_count}],
+                downloads: {
+                  total: ([$all[0][].assets[] | select(.name | test($re)) | .download_count] | add // 0),
+                  latest: ([.assets[] | select(.name | test($re)) | .download_count] | add // 0)
+                }
+              }' > release.json
           cat release.json
 
       - name: Replace the release-index branch
@@ -40,6 +52,12 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           version=$(jq -r .version release.json)
+          # Hourly runs would otherwise force-push an identical commit.
+          if curl -fsS "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/release-index/release.json" -o old.json \
+            && jq -e --slurpfile new release.json '. == $new[0]' old.json > /dev/null; then
+            echo "release.json unchanged"
+            exit 0
+          fi
           git init -q index && mv release.json index/ && cd index
           git checkout -q --orphan release-index
           git add release.json
