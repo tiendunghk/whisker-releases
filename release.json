@@ -1,0 +1,114 @@
+{
+  "version": "0.8.1",
+  "tag": "v0.8.1",
+  "published_at": "2026-11-19T08:41:17Z",
+  "url": "https://github.com/tiendunghk/whisker-releases/releases/tag/v0.8.1",
+  "assets": [
+    {
+      "name": "latest.json",
+      "url": "https://github.com/tiendunghk/whisker-releases/releases/download/v0.8.1/latest.json",
+      "size": 5811,
+      "downloads": 8
+    },
+    {
+      "name": "Whisker_0.8.1_aarch64.app.tar.gz",
+      "url": "https://github.com/tiendunghk/whisker-releases/releases/download/v0.8.1/Whisker_0.8.1_aarch64.app.tar.gz",
+      "size": 14770453,
+      "downloads": 2
+    },
+    {
+      "name": "Whisker_0.8.1_aarch64.app.tar.gz.sig",
+      "url": "https://github.com/tiendunghk/whisker-releases/releases/download/v0.8.1/Whisker_0.8.1_aarch64.app.tar.gz.sig",
+      "size": 424,
+      "downloads": 2
+    },
+    {
+      "name": "Whisker_0.8.1_aarch64.dmg",
+      "url": "https://github.com/tiendunghk/whisker-releases/releases/download/v0.8.1/Whisker_0.8.1_aarch64.dmg",
+      "size": 14604079,
+      "downloads": 2
+    },
+    {
+      "name": "Whisker_0.8.1_amd64.AppImage",
+      "url": "https://github.com/tiendunghk/whisker-releases/releases/download/v0.8.1/Whisker_0.8.1_amd64.AppImage",
+      "size": 88910328,
+      "downloads": 2
+    },
+    {
+      "name": "Whisker_0.8.1_amd64.AppImage.sig",
+      "url": "https://github.com/tiendunghk/whisker-releases/releases/download/v0.8.1/Whisker_0.8.1_amd64.AppImage.sig",
+      "size": 436,
+      "downloads": 2
+    },
+    {
+      "name": "Whisker_0.8.1_amd64.deb",
+      "url": "https://github.com/tiendunghk/whisker-releases/releases/download/v0.8.1/Whisker_0.8.1_amd64.deb",
+      "size": 11163756,
+      "downloads": 1
+    },
+    {
+      "name": "Whisker_0.8.1_amd64.deb.sig",
+      "url": "https://github.com/tiendunghk/whisker-releases/releases/download/v0.8.1/Whisker_0.8.1_amd64.deb.sig",
+      "size": 432,
+      "downloads": 2
+    },
+    {
+      "name": "Whisker_0.8.1_x64-setup.exe",
+      "url": "https://github.com/tiendunghk/whisker-releases/releases/download/v0.8.1/Whisker_0.8.1_x64-setup.exe",
+      "size": 7820722,
+      "downloads": 2
+    },
+    {
+      "name": "Whisker_0.8.1_x64-setup.exe.sig",
+      "url": "https://github.com/tiendunghk/whisker-releases/releases/download/v0.8.1/Whisker_0.8.1_x64-setup.exe.sig",
+      "size": 436,
+      "downloads": 2
+    },
+    {
+      "name": "Whisker_0.8.1_x64.app.tar.gz",
+      "url": "https://github.com/tiendunghk/whisker-releases/releases/download/v0.8.1/Whisker_0.8.1_x64.app.tar.gz",
+      "size": 15060173,
+      "downloads": 1
+    },
+    {
+      "name": "Whisker_0.8.1_x64.app.tar.gz.sig",
+      "url": "https://github.com/tiendunghk/whisker-releases/releases/download/v0.8.1/Whisker_0.8.1_x64.app.tar.gz.sig",
+      "size": 424,
+      "downloads": 2
+    },
+    {
+      "name": "Whisker_0.8.1_x64.dmg",
+      "url": "https://github.com/tiendunghk/whisker-releases/releases/download/v0.8.1/Whisker_0.8.1_x64.dmg",
+      "size": 14912579,
+      "downloads": 2
+    },
+    {
+      "name": "Whisker_0.8.1_x64.msi",
+      "url": "https://github.com/tiendunghk/whisker-releases/releases/download/v0.8.1/Whisker_0.8.1_x64.msi",
+      "size": 10190848,
+      "downloads": 1
+    },
+    {
+      "name": "Whisker_0.8.1_x64.msi.sig",
+      "url": "https://github.com/tiendunghk/whisker-releases/releases/download/v0.8.1/Whisker_0.8.1_x64.msi.sig",
+      "size": 436,
+      "downloads": 2
+    },
+    {
+      "name": "Whisker_0.8.1_x86_64.rpm",
+      "url": "https://github.com/tiendunghk/whisker-releases/releases/download/v0.8.1/Whisker_0.8.1_x86_64.rpm",
+      "size": 11169223,
+      "downloads": 1
+    },
+    {
+      "name": "Whisker_0.8.1_x86_64.rpm.sig",
+      "url": "https://github.com/tiendunghk/whisker-releases/releases/download/v0.8.1/Whisker_0.8.1_x86_64.rpm.sig",
+      "size": 436,
+      "downloads": 2
+    }
+  ],
+  "downloads": {
+    "total": 141,
+    "latest": 11
+  }
+}
